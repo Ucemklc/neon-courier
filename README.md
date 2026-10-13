@@ -1,35 +1,69 @@
 # Neon Courier
 
-A Unity / C# endless-runner game prototype by Ulaş Cem Kılıç, built with Unity 6, URP and the Input System.
+**Neon şehrinde koş, paketleri topla, teslimatı zamanında yap.**
 
-## Gameplay systems
-- Lane movement, jumping, sliding and hoverboard movement.
-- Procedural track content, obstacles and package deliveries.
-- Power-ups, daily missions, career progression and character selection.
-- Drone challenges, rail sections, route goals and game UI.
+Unity ve C# ile geliştirdiğim kurye temalı sonsuz koşu oyunu prototipi. Şerit değiştirme, zıplama ve kayma hareketlerini paket teslimatı, güçlendirmeler ve karakter ilerlemesiyle birleştiriyor.
 
-## Source archive
-Download and extract [neon-courier-source.zip](neon-courier-source.zip) to inspect the original game scripts and editor tools.
+**Geliştirici:** [Ulaş Cem Kılıç](https://github.com/Ucemklc) · **Unity:** 6000.3.20f1 · **Dil:** C# · **Render:** URP · **Girdi:** Unity Input System
 
-- `Assets/_Game/Scripts/RunnerController.cs`: character movement.
-- `Assets/_Game/Scripts/TrackManager.cs`: track management.
-- `Assets/_Game/Scripts/GameManager.cs`: game state.
-- `Assets/_Game/Scripts/Editor`: project-specific editor tools.
-- `Assets/_Game/Tests`: existing play-check scripts.
-- `Packages` and `ProjectSettings`: project dependency and configuration snapshot.
+[Kaynak kod arşivi](neon-courier-source.zip) · [Hareket sistemi](RunnerController.cs) · [Parkur sistemi](TrackManager.cs) · [Diğer oyunum: Burger Empire](https://github.com/Ucemklc/burger-empire)
 
-Unity version: **6000.3.20f1**.
+![Neon Courier tanıtım görseli](cover.png)
 
-## Asset dependencies and limitations
-This is a **source-code showcase**, not a standalone playable project. Scenes, prefabs, character models, animations, sounds and other visual assets are omitted because the original project contains third-party asset packs whose public redistribution permission has not been verified. Scripts and editor tools can reference those omitted files. Opening this archive alone will not reproduce the complete game.
+## Oyun içinden
 
-The local project uses packs including BackRock-NeonCity, BEDRILL, BTM_Assets, Cardboard Box (Rigged), Casual Game Sounds, COMICOMI, CyberWare, Layer Lab, StylizedCharacterPack, VoodooPlay and 8-Bit RPG Adventure Music Pack, plus additional character/animation assets. This list is an inventory, not a redistribution license.
+<p align="center">
+  <img src="gameplay.png" width="31%" alt="Neon şehirde kurye koşusu" />
+  <img src="delivery.png" width="31%" alt="Zamanlamalı paket teslimatı" />
+  <img src="characters.png" width="31%" alt="Karakter seçimi ve karakter bonusları" />
+</p>
 
-Generated caches, local backups, signing files and build outputs are excluded. This upload has not been compiled or play-tested.
+**Koşu ve şehir rotası · Paket teslimatı · Karakter seçimi**
 
-## Rights
-No open-source license is granted by this upload. Third-party assets and dependencies retain their own license terms.
+Üstteki kapak tanıtım çizimidir; üç dikey görüntü yerel geliştirme sürümlerinden alınmış gerçek oyun ekranlarıdır. Görüntüler farklı geliştirme aşamalarını yansıtabilir.
 
-## Browse code on GitHub
+## Oynanış
 
-Selected C# files are also provided at the repository root for quick review. They are excerpts from the archive, not a separate runnable project. Use the archive for the original directory structure and complete included source files.
+- Şerit değiştir, engellerden kaç, zıpla ve kay.
+- Paket topla ve teslimat noktalarında zamanlamanı kullan.
+- Hoverboard ve güçlendirmelerle koşuyu sürdür.
+- Günlük görevleri ve kariyer hedeflerini takip et; farklı karakterleri seç.
+
+## Teknik olarak neler var?
+
+| Sistem | İncelenecek kod | Öne çıkan nokta |
+| --- | --- | --- |
+| Oyuncu hareketi | [RunnerController.cs](RunnerController.cs) | CharacterController, şerit geçişi, zıplama, kayma ve dokunmatik girdi |
+| Parkur yönetimi | [TrackManager.cs](TrackManager.cs) | Oyuncunun arkasında kalan parkur parçalarını tekrar kullanma |
+| Oyun akışı | [GameManager.cs](GameManager.cs) | Koşu durumu ve oyun yönetimi |
+| Kariyer | [CourierCareerProgress.cs](CourierCareerProgress.cs) | İlerleme ve kariyer hedefleri |
+| Teslimat | [CourierTimedDelivery.cs](CourierTimedDelivery.cs) | Süreye bağlı teslimat sistemi |
+
+Arşivde ek oyun sistemleri, projeye özel editör araçları ve mevcut play-check betikleri bulunur. Depo kökündeki C# dosyaları hızlı inceleme için seçilmiş kopyalardır.
+
+## Arşiv ve proje kapsamı
+
+[neon-courier-source.zip](neon-courier-source.zip) içinde:
+
+```text
+Assets/_Game/Scripts/    Oyun kodları ve editör araçları
+Assets/_Game/Tests/      Mevcut kontrol betikleri
+Packages/               Unity paket bağımlılıkları
+ProjectSettings/        Proje ayarlarının kopyası
+```
+
+**Bu depo kaynak kod portföyüdür; tek başına çalıştırılabilir tam oyun projesi değildir.** Üçüncü taraf modellerin, animasyonların, müziklerin ve diğer hazır varlıkların yeniden dağıtım izni doğrulanmadığı için bu dosyalar, sahneler ve prefablar arşive eklenmedi. Kod ve editör araçları bu eksik varlıklara başvurabilir. Ekran görüntüleri tam yerel projeyi gösterir.
+
+Yerel projede BackRock-NeonCity, BEDRILL, BTM_Assets, Cardboard Box (Rigged), Casual Game Sounds, COMICOMI, CyberWare, Layer Lab, StylizedCharacterPack, VoodooPlay ve 8-Bit RPG Adventure Music Pack gibi paketler kullanılır. Bu liste bir lisans veya yeniden dağıtım izni değildir.
+
+## Geliştirme durumu
+
+Geliştirme aşamasındaki prototip. Bu GitHub düzenlemesi sırasında oyun yeniden derlenmedi veya oynanarak test edilmedi. Önbellekler, yerel yedekler, imzalama dosyaları ve derleme çıktıları paylaşılmadı.
+
+## English overview
+
+A courier-themed Unity 6 / C# endless-runner prototype with lane movement, package deliveries, power-ups and character progression. The screenshots show the full local game. This public repository is a **source-code showcase**; third-party assets, scenes and prefabs are omitted, so the archive is not a standalone playable project.
+
+## Kullanım hakları
+
+Bu depoda açık kaynak lisansı verilmemiştir. Üçüncü taraf varlık ve bağımlılıklar kendi lisanslarına tabidir.
